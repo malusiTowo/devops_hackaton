@@ -60,9 +60,12 @@ function getUser (_, response) {
 }
 
 app.get('/', function(req, res) {
-    res.sendfile(__dirname + '/public/test.html');
+    res.sendfile(__dirname + '/public/home.html');
 });
-app.get('/result', getUser);
+app.get('/result', function(req, res) {
+    res.sendfile(__dirname + '/public/result.html');
+});
 app.post('/add-names', addUser);
+app.get('/get-names', getUser);
 
 app.listen(port, () => console.log('Server is listening on port ' + port));
