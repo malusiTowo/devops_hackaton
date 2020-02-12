@@ -6,7 +6,6 @@ var Counter = require('prom-client').Counter;
 var Histogram = require('prom-client').Histogram;
 var Summary = require('prom-client').Summary;
 var ResponseTime = require('response-time');
-// var Logger = require('./logger');
 
 /**
  * A Prometheus counter that counts the invocations of the different HTTP verbs
