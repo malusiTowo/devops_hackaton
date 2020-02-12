@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<style>
+    input[type=text] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+</style>
+<input id="newName" type="text"><br>
+<button id="addNameButton">Add</button>
+<ul id='list'>
+</ul>
+<button onclick="getArray();">Done</button>
+</body>
+</html>
+
+<script>
+    let arrayName = [];
+    let nameInput = document.getElementById('newName');
+    let addNameButton = document.getElementById('addNameButton');
+    let incompleteName = document.getElementById('list');
+
+    let addTask = function () {
+        let text = nameInput.value;
+        let li = document.createElement('li');
+        li.innerHTML = "<label id=number>" + text + "</label>";
+        incompleteName.appendChild(li);
+        arrayName.push(text)
+    };
+
+    let getArray = () => {
+        (async () => {
+            const rawResponse = await fetch('http://localhost:3000/add-names', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({names: arrayName})
+            });
+            const content = await rawResponse.json();
+
+            console.log(content);
+        })();
+        //window.location.href = '/result';
+    };
+
+    addNameButton.onclick = addTask;
+</script>
