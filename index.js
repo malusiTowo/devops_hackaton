@@ -4,12 +4,12 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.get('/liste-personnes', (req, res, next) => {
-  res.send('helloc');
+    res.send('helloc');
 });
 
 
 app.get('/liste-personnes', (req, res, next) => {
-  res.send('helloc')
+    res.send('helloc')
 });
 
 // app.get('/bad', (req,res) => )
