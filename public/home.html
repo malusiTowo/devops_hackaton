@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <title>Kings cake!</title>
 </head>
 
 <body>
@@ -13,7 +14,7 @@
             box-sizing: border-box;
         }
     </style>
-    <input id="newName" type="text"><br>
+    <input placeholder="Your name here..." id="newName" type="text"><br>
     <button id="addNameButton">Add</button>
     <ul id='list'>
     </ul>
@@ -50,7 +51,7 @@
 
             console.log(content);
         })();
-        //window.location.href = '/result';
+        window.location.href = 'http://localhost:3000/result';
     };
 
     addNameButton.onclick = addTask;

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<style>
+    input[type=text] {
+        width: 20%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+</style>
+<p>
+    Results are :
+</p>
+<ul id='list'>
+</ul>
+<button onclick="getArray();" id="buttonResult">Show result !</button>
+</body>
+</html>
+
+<script>
+    let incompleteName = document.getElementById('list');
+    let buttonResult = document.getElementById('buttonResult');
+
+
+    let getArray = () => {
+        buttonResult.disabled = true;
+        (async () => {
+            await fetch('http://localhost:3000/get-names')
+                .then(response => response.json())
+                .then(data => {
+                    let names = data.names;
+                    console.log(names);
+                    names.forEach(element => {
+                        let li = document.createElement('li');
+                        li.innerHTML = "<label id=number>" + element + "</label>";
+                        incompleteName.appendChild(li);
+                        console.log(element)
+                    })
+                });
+        })();
+    };
+
+</script>
