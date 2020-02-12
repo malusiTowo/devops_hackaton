@@ -28,7 +28,7 @@
     let getArray = () => {
         buttonResult.disabled = true;
         (async () => {
-            const rawResponse = await fetch('http://localhost:3000/get-names')
+            await fetch('http://localhost:3000/get-names')
                 .then(response => response.json())
                 .then(data => {
                     let names = data.names;
