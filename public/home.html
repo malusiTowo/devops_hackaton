@@ -39,7 +39,7 @@
 
     let getArray = () => {
         (async () => {
-            const rawResponse = await fetch('http://localhost:80/add-names', {
+            const rawResponse = await fetch('http://15.236.56.225/add-names', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -51,7 +51,7 @@
 
             console.log(content);
         })();
-        window.location.href = 'http://localhost:3000/result';
+        window.location.href = 'http://15.236.56.225/result';
     };
 
     addNameButton.onclick = addTask;
